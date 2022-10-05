@@ -29,7 +29,6 @@ int main()
 	else if (A > C && C > B)
 	{
 		sizeProduct = (A - C) * (C - B);
-
 	}
 	cout << "Product: " << sizeProduct;
 
