@@ -1,5 +1,0 @@
-﻿  Task1.cpp
-C:\Users\vadco\Desktop\NUFT\OPRA\Lab1\Lab2_VadymHurnik\Task1\Task1.cpp(15,38): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\vadco\Desktop\NUFT\OPRA\Lab1\Lab2_VadymHurnik\Task1\Task1.cpp(15,86): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\vadco\Desktop\NUFT\OPRA\Lab1\Lab2_VadymHurnik\Task1\Task1.cpp(15,122): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Task1.vcxproj -> C:\Users\vadco\Desktop\NUFT\OPRA\Lab1\Lab2_VadymHurnik\x64\Debug\Task1.exe
