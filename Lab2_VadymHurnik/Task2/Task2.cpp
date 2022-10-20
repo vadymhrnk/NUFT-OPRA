@@ -28,13 +28,13 @@ int main()
 
 	if (x1>x2)
 	{
-		cout << "x1 = : " << x1 << endl;
-		cout << "x2 = : " << x2 << endl;
+		cout << "x1 = " << x1 << endl;
+		cout << "x2 = " << x2 << endl;
 	}
 	else
 	{
-		cout << "x2 = : " << x2 << endl;
-		cout << "x1 = : " << x1 << endl;
+		cout << "x2 = " << x2 << endl;
+		cout << "x1 = " << x1 << endl;
 
 	}
 

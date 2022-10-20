@@ -53,9 +53,10 @@ int main()
 			cout << "December: 31" << endl;
 			break;
 		case 0:
+			cout << "Quitting..." << endl;
 			break;
 		default:
-			cout << "Incorrect value. Re enter:" << endl;
+			cout << "Incorrect value. Try again. " << endl;
 			break;
 		}
 	} while (number != 0);
