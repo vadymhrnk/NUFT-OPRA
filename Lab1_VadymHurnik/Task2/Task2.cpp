@@ -27,12 +27,6 @@ int main()
 	cout << "Enter point C (between A and B): ";
 	cin >> C;
 
-	while (C > B && C > A || C < B && C < A)
-	{
-		cout << "Re enter point C: ";
-		cin >> C;
-	}
-
 	if (B > C && C > A)
 	{
 		sizeProduct = (B - C) * (C - A);
