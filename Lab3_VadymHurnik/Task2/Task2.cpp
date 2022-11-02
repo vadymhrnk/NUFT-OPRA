@@ -5,8 +5,7 @@ using namespace std;
 
 int main()
 {
-	const double A = 2.5, B = 5.4;
-	double sum, mult = 1.0, i, j, i_start, i_end, j_start, j_end;
+	double sum=0, mult = 1.0, i, j, i_start, i_end, j_start, j_end;
 
 	cout << " start i = ";
 	cin >> i_start;
@@ -17,7 +16,6 @@ int main()
 	cout << " end j = ";
 	cin >> j_end;
 
-	sum = 0;
 	for (i = i_start; i <= i_end; i++)
 	{
 		for (j = j_start; j <= j_end; j++)
