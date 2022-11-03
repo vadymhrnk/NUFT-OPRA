@@ -18,11 +18,12 @@ int main()
 
 	for (i = i_start; i <= i_end; i++)
 	{
+		sum = 0;
 		for (j = j_start; j <= j_end; j++)
 		{
-			sum = sum + (i / i + 1);
+			sum = sum + (i / (i + 1));
 		}
-		mult = mult + sum / sqrt(j);
+		mult = mult * (sum / sqrt(j));
 	}
 	cout << " Mult = " << mult << endl;
 
