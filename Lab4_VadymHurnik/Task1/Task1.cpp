@@ -30,7 +30,7 @@ int main()
 	}
 
 	cout << "Counter: " << counter << endl;
-	cout << "Summation: " << sum << endl;
+		cout << "Summation: " << sum << endl;
 
 	return 0;
 }

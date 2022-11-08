@@ -5,15 +5,15 @@ using namespace std;
 
 int main()
 {
-	double sum=0, mult = 1.0, i, j, i_start, i_end, j_start, j_end;
+	double sum = 0, mult = 1.0, i, j, i_start, i_end, j_start, j_end;
 
-	cout << " start i = ";
+	cout << "Start i = ";
 	cin >> i_start;
-	cout << " end i = ";
+	cout << "End i = ";
 	cin >> i_end;
-	cout << " start j = ";
+	cout << "Start j = ";
 	cin >> j_start;
-	cout << " end j = ";
+	cout << "End j = ";
 	cin >> j_end;
 
 	for (i = i_start; i <= i_end; i++)
