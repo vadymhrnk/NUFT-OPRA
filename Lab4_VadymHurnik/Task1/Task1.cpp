@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	float s, e = 0, x = 0, k = 1, sum = 0;
+	float sum, s, e, x, k = 1;
 	int counter = 0;
 
 	cout << "Enter x: ";
@@ -18,19 +18,17 @@ int main()
 	s = cos(pow((x), k)) / pow(k, 2);
 
 	sum = s;
-	cout << "RESULT: " << s << endl;
 	while (fabs(s) > e)
 	{
-		k++;
 		s = cos(pow((x), k)) / pow(k, 2);
 		sum = sum + s;
-		cout << "RESULT: " << s << endl;
 
+		k++;
 		counter++;
 	}
 
 	cout << "Counter: " << counter << endl;
-		cout << "Summation: " << sum << endl;
+	cout << "Summation: " << sum << endl;
 
 	return 0;
 }

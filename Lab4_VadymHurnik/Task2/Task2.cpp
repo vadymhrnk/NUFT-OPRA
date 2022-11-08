@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	int number = 0, oddCounter = 0, evenCounter = 0;
+	int number, oddCounter = 0, evenCounter = 0;
 
 	cout << "Enter number from 1 to 10.000.000 = ";
 	cin >> number;

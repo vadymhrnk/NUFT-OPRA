@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	float x = 0, y = 0, rangeStart = 0, rangeEnd = 0, rangeStep = 0;
+	float x, y, rangeStart, rangeEnd, rangeStep;
 
 	cout << "Enter start of range: ";
 	cin >> rangeStart;
