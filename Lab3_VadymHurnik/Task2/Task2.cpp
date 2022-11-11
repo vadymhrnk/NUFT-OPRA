@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	double sum = 0, mult = 1.0, i, j, i_start, i_end, j_start, j_end;
+	double sum = 0, mult = 1.0, n, j, i_start, i_end, j_start, j_end;
 
 	cout << "Start i = ";
 	cin >> i_start;
@@ -16,12 +16,12 @@ int main()
 	cout << "End j = ";
 	cin >> j_end;
 
-	for (i = i_start; i <= i_end; i++)
+	for (n = i_start; n <= i_end; n++)
 	{
 		sum = 0;
 		for (j = j_start; j <= j_end; j++)
 		{
-			sum = sum + (i / (i + 1));
+			sum = sum + (n / (n + 1));
 		}
 		mult = mult * (sum / sqrt(j));
 	}
