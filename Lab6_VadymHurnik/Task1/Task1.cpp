@@ -22,7 +22,7 @@ int main()
 
 	for (int i = 0; i < size; i++)
 	{
-		cout << " " << a4[i] << " ";
+		cout << a4[i] << " ";
 		if ((a4[i] % 2) == 0 && a4[i] > 0)
 		{
 			sum = sum + a4[i];
