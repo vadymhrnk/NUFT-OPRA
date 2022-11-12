@@ -25,7 +25,7 @@ int main()
 		}
 		mult = mult * (sum / sqrt(j));
 	}
-	cout << " Mult = " << mult << endl;
+	cout << "Mult = " << mult << endl;
 
 	return 0;
 }

@@ -1,12 +1,11 @@
 #include <iostream>
-#include <iostream>
 #include<math.h>
 
 using namespace std;
 
 int main()
 {
-	float sum, s, e, x, k = 1;
+	float sum, s, e, x, n = 1;
 	int counter = 0;
 
 	cout << "Enter x: ";
@@ -15,17 +14,21 @@ int main()
 	cout << "Enter e: ";
 	cin >> e;
 
-	//s = cos(pow((x), k)) / pow(k, 2);
+	s = pow(-1, n) / (pow(n, 3) + 3);
+	sum = s;
 
-	//sum = s;
-	while (fabs(s) > e)
+	float lim = 1 / (pow(n, 3) + 3);
+
+	do
 	{
-		s = cos(pow((x), k)) / pow(k, 2);
+		lim = 1 / (pow(n, 3) + 3);
+
+		s = pow(-1, n) / (pow(n, 3) + 3);
 		sum = sum + s;
 
-		k++;
+		n++;
 		counter++;
-	}
+	} while (lim > e);
 
 	cout << "Counter: " << counter << endl;
 	cout << "Summation: " << sum << endl;
