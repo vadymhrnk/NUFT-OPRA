@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	int size;
+	int size, input;
 	vector<int> a8;
 
 	cout << "Enter size of array: ";
@@ -22,7 +22,6 @@ int main()
 
 	system("cls");
 
-	int input;
 	cout << "Enter number: ";
 	cin >> input;
 

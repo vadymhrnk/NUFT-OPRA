@@ -33,11 +33,11 @@ int main()
 		mult = mult * (pow(sin(x * j), 2) + 2 * exp(-x + j));
 	} while (j <= j_end);
 
-	double P = sqrt(5.32 * 2.51) * sum + mult;
+	double p = sqrt(5.32 * 2.51) * sum + mult;
 
 	cout << "Summation: " << sum << endl;
 	cout << "Multiplication: " << mult << endl;
-	cout << "Result: " << P << endl;
+	cout << "Result: " << p << endl;
 
 	return 0;
 }

@@ -1,4 +1,3 @@
-//E.1 #15
 #include <iostream>
 #include<math.h>
 
