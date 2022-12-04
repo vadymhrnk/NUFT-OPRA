@@ -4,15 +4,15 @@ using namespace std;
 
 int main()
 {
-	const int size = 5;
+	const int row = 5, column = 7;
 	int min = 0;
-	int a10[size][size];
+	int a10[row][column];
 
 	srand(time(NULL));
 
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < row; i++)
 	{
-		for (int j = 0; j < size; j++)
+		for (int j = 0; j < column; j++)
 		{
 			a10[i][j] = rand() % 100 - 50;
 			cout << a10[i][j] << "\t";
@@ -22,9 +22,9 @@ int main()
 
 	min = a10[0][0];
 
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < row; i++)
 	{
-		for (int j = 0; j < size; j++)
+		for (int j = 0; j < column; j++)
 		{
 			if (a10[i][j] < min)
 				min = a10[i][j];
