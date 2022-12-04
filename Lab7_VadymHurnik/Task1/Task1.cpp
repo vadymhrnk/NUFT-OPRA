@@ -1,20 +1,36 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
 int main()
 {
-	int size, sum = 0, counter = 0;
-	vector<int> a10;
-
-	cout << "Enter size of array: ";
-	cin >> size;
-
-	a10.resize(size);
+	const int size = 5;
+	int min = 0;
+	int a10[size][size];
 
 	srand(time(NULL));
 
 	for (int i = 0; i < size; i++)
-		a10[i] = rand() % 100 - 50;
+	{
+		for (int j = 0; j < size; j++)
+		{
+			a10[i][j] = rand() % 100 - 50;
+			cout << a10[i][j] << "\t";
+		}
+		cout << endl;
+	}
+
+	min = a10[0][0];
+
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+		{
+			if (a10[i][j] < min)
+				min = a10[i][j];
+		}
+
+	}
+	cout << "Minimum element: " << min;
+	return 0;
 }
