@@ -4,60 +4,49 @@
 
 using namespace std;
 
-void display_matrix(int** matrix, int n) {
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            cout << matrix[i][j] << "\t";
-        }
-        cout << endl;
-    }
-}
-
-void generate_matrix(int** matrix, int n) {
-    srand(time(NULL));
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            matrix[i][j] = rand() % 100;
-        }
-    }
-}
-
-void shell_sort(int** matrix, int n) {
-    int gap, i, j, temp;
-    for (gap = n / 2; gap > 0; gap /= 2) {
-        for (i = gap; i < n; i++) {
-            for (j = i - gap; j >= gap && matrix[j][i - j] != matrix[j + gap][i - j - gap]; j -= gap) {
-                if (matrix[j + gap][i - j - gap] > matrix[j][i - j]) {
-                    temp = matrix[j + gap][i - j - gap];
-                    matrix[j + gap][i - j - gap] = matrix[j][i - j];
-                    matrix[j][i - j] = temp;
-                }
-            }
-        }
-    }
+void shellSort(int arr[], int n) {
+	for (int gap = n / 2; gap > 0; gap /= 2) {
+		for (int i = gap; i < n; i++) {
+			int temp = arr[i];
+			int j;
+			for (j = i; j >= gap && arr[j - gap] < temp; j -= gap) {
+				arr[j] = arr[j - gap];
+			}
+			arr[j] = temp;
+		}
+	}
 }
 
 int main() {
-    const int n = 5;
-    int** matrix = new int* [n];
-    for (int i = 0; i < n; i++) {
-        matrix[i] = new int[n];
-    }
 
-    generate_matrix(matrix, n);
+	srand(time(0));
+	const int n = 5;
+	int matrix[n][n];
 
-    cout << "Matrix before sorting:" << endl;
-    display_matrix(matrix, n);
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			matrix[i][j] = rand() % 50;
+		}
+	}
 
-    shell_sort(matrix, n);
+	int counter = 1;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < i; j++)
+		{
 
-    cout << "Matrix after sorting:" << endl;
-    display_matrix(matrix, n);
+		}
+	}
 
-    for (int i = 0; i < n; i++) {
-        delete[] matrix[i];
-    }
-    delete[] matrix;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			cout << matrix[i][j] << "\t";
+		}
+		cout << endl;
+	}
 
-    return 0;
+	return 0;
 }
