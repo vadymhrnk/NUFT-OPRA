@@ -9,10 +9,10 @@ const int MAX_SIZE = 10;
 
 void generateMatrix(int matrix[][MAX_SIZE], int size)
 {
-    srand(time(0)); // seed the random number generator with current time
+    srand(time(0));
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
-            matrix[i][j] = rand() % 100; // generate a random number between 0 and 99
+            matrix[i][j] = rand() % 100;
         }
     }
 }
@@ -32,11 +32,9 @@ void sortMatrix(int matrix[][MAX_SIZE], int size)
 {
     int temp[MAX_SIZE];
     for (int i = 0; i < size; i++) {
-        // copy the row to a temporary array
         for (int j = 0; j < size; j++) {
             temp[j] = matrix[i][j];
         }
-        // sort the temporary array in descending order
         for (int j = 0; j < size - 1; j++) {
             for (int k = j + 1; k < size; k++) {
                 if (temp[j] < temp[k]) {
@@ -46,7 +44,6 @@ void sortMatrix(int matrix[][MAX_SIZE], int size)
                 }
             }
         }
-        // copy the sorted array back to the matrix
         for (int j = 0; j < size; j++) {
             matrix[i][j] = temp[j];
         }

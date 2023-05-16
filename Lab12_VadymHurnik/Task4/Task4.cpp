@@ -1,13 +1,11 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <windows.h> // for changing console color
-
+#include <windows.h> 
 using namespace std;
 
 const int MAX_SIZE = 100;
 
-// Numerical function to find the maximum element in an array
 int findMax(int arr[], int size) {
     int max = arr[0];
     for (int i = 1; i < size; i++) {
@@ -26,7 +24,6 @@ int main() {
     cout << "Enter the size of the matrix: ";
     cin >> size;
 
-    // Generate random numbers for the matrix elements
     srand(time(NULL));
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
@@ -34,7 +31,6 @@ int main() {
         }
     }
 
-    // Display the generated matrix
     cout << "Generated Matrix:" << endl;
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
@@ -43,7 +39,6 @@ int main() {
         cout << endl;
     }
 
-    // Find the maximum element for each column of the matrix
     for (int i = 0; i < size; i++) {
         int tempArr[MAX_SIZE];
         for (int j = 0; j < size; j++) {
@@ -52,14 +47,13 @@ int main() {
         maxArr[i] = findMax(tempArr, size);
     }
 
-    // Display the maximum elements array
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     cout << endl << "Max elements for each column:" << endl;
     for (int i = 0; i < size; i++) {
         SetConsoleTextAttribute(hConsole, i + 1);
         cout << maxArr[i] << "\t";
     }
-    SetConsoleTextAttribute(hConsole, 7); // reset color
+    SetConsoleTextAttribute(hConsole, 7);
 
     return 0;
 }

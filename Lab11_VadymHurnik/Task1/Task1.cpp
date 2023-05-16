@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void bubble_sort(int arr[], int size) {
+void bubbleSort(int arr[], int size) {
     for (int i = 1; i < size; i += 2) {
         for (int j = 1; j < size - i; j += 2) {
             if (arr[j] > arr[j + 2]) {
@@ -16,7 +16,7 @@ void bubble_sort(int arr[], int size) {
     }
 }
 
-void print_array(int arr[], int size) {
+void printArray(int arr[], int size) {
     for (int i = 0; i < size; i++) {
         cout << arr[i] << " ";
     }
@@ -34,17 +34,17 @@ int main() {
     }
 
     cout << "Array 1 (unsorted): ";
-    print_array(arr1, SIZE);
+    printArray(arr1, SIZE);
     cout << "Array 2 (unsorted): ";
-    print_array(arr2, SIZE);
+    printArray(arr2, SIZE);
 
-    bubble_sort(arr1, SIZE);
-    bubble_sort(arr2, SIZE);
+    bubbleSort(arr1, SIZE);
+    bubbleSort(arr2, SIZE);
 
     cout << "Array 1 (sorted): ";
-    print_array(arr1, SIZE);
+    printArray(arr1, SIZE);
     cout << "Array 2 (sorted): ";
-    print_array(arr2, SIZE);
+    printArray(arr2, SIZE);
 
     return 0;
 }
