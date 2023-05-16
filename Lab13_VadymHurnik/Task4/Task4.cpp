@@ -1,53 +1,66 @@
 #include <iostream>
+
 using namespace std;
 
-void sum_below_main_diag(int** matrix, int n, int* result) {
-    for (int i = 0; i < n; i++) {
-        result[i] = 0;
-        for (int j = i + 1; j < n; j++) {
-            if (matrix[i][j] > 0) {
-                result[i] += matrix[i][j];
-            }
-        }
-    }
+void calculateRowSums(int** matrix, int rowCount, int* rowSums) {
+	for (int i = 0; i < rowCount; i++)
+	{
+		int sum = 0;
+		for (int j = 0; j < i; j++)
+		{
+			sum += matrix[i][j];
+		}
+		rowSums[i] = sum;
+	}
+}
+
+
+void printMatrix(int** arr, int size) {
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+			cout << arr[i][j] << "\t";
+		}
+		cout << endl;
+	}
 }
 
 int main() {
-    int n;
-    cout << "Enter the size of the matrix: ";
-    cin >> n;
 
-    // Allocate memory for the matrix
-    int** matrix = new int* [n];
-    for (int i = 0; i < n; i++) {
-        matrix[i] = new int[n];
-    }
+	srand(time(0));
+	const int n = 5;
+	int rowSums[n];
+	int** matrix = new int* [n];
 
-    // Read the matrix elements
-    cout << "Enter the matrix elements:\n";
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            cin >> matrix[i][j];
-        }
-    }
+	for (int i = 0; i < n; i++)
+	{
+		matrix[i] = new int[n];
+		for (int j = 0; j < n; j++)
+		{
+			matrix[i][j] = rand() % 50;
+		}
+	}
 
-    // Calculate the sums of positive elements below the main diagonal
-    int* result = new int[n];
-    sum_below_main_diag(matrix, n, result);
+	cout << "Matrix:\n";
+	printMatrix(matrix, n);
 
-    // Print the result
-    cout << "Sums of positive elements below the main diagonal:\n";
-    for (int i = 0; i < n; i++) {
-        cout << result[i] << " ";
-    }
-    cout << endl;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < i; j++)
+		{
+			calculateRowSums(matrix, n, rowSums);
+		}
+	}
 
-    // Free memory
-    for (int i = 0; i < n; i++) {
-        delete[] matrix[i];
-    }
-    delete[] matrix;
-    delete[] result;
+	cout << "Row sums: ";
+	for (int i = 1; i < n; i++) {
+		cout << rowSums[i] << " ";
+	}
+	cout << endl;
 
-    return 0;
+
+	for (int i = 0; i < n; i++) {
+		delete[] matrix[i];
+	}
+	delete[] matrix;
+
+	return 0;
 }
