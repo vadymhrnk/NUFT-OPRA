@@ -2,10 +2,19 @@
 //
 
 #include <iostream>
+#include "StaticLib.h"
+
+using namespace StaticLibrary;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	StaticLib lib;
+	int n = 3;
+	int arr[] = { 1,2,2 };
+	if (lib.isPalindrome(arr, n))
+	{
+		cout << "Is";
+	}
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
