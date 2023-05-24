@@ -53,28 +53,25 @@ void createTextStringsFile(const char* filename) {
 	}
 }
 
-void createBinaryMatrixFile(const char* filename) {
+void createBinaryArrayFile(const char* filename) {
 	int size;
-	cout << "Enter size of square matrix: ";
+	cout << "Enter the size of the array: ";
 	cin >> size;
 
 	FILE* file;
 	if (fopen_s(&file, filename, "wb") == 0) {
 		fwrite(&size, sizeof(int), 1, file);
-		fwrite(&size, sizeof(int), 1, file);
 		srand(time(0));
 
 		for (int i = 0; i < size; i++) {
-			for (int j = 0; j < size; j++) {
-				int value = rand() % 101 - 50;
-				fwrite(&value, sizeof(int), 1, file);
-			}
+			int value = rand() % 101 - 50;
+			fwrite(&value, sizeof(int), 1, file);
 		}
 		fclose(file);
-		cout << "Binary matrix file created successfully." << endl;
+		cout << "Binary array file created successfully." << endl;
 	}
 	else {
-		cout << "Error creating binary matrix file." << endl;
+		cout << "Error creating binary array file." << endl;
 	}
 }
 
@@ -132,7 +129,7 @@ int main() {
 	system("pause");
 	system("cls");
 	cout << "Creating binary matrix file." << endl;
-	createBinaryMatrixFile(binaryMatrixFilename);
+	createBinaryArrayFile(binaryMatrixFilename);
 	system("pause");
 	system("cls");
 	cout << "Creating binary column matrix file." << endl;
