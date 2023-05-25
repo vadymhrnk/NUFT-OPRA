@@ -1,7 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <cstdlib>
-#include <ctime>
 #include <StaticLib.h>
 #include <DynamicLib.h>
 
