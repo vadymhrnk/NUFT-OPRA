@@ -1,44 +1,64 @@
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <StaticLib.h>
 #include <DynamicLib.h>
 
-
 using namespace std;
 
-int main() {
+int main()
+{
     StaticLibrary::StaticLib lib;
-    string inputFilename, outputFilename;
-    cout << "Enter input filename: ";
-    cin >> inputFilename;
-    cout << "Enter output filename: ";
-    cin >> outputFilename;
 
-    string str1;
-    cout << "Enter text: ";
-    cin.ignore();
-    getline(cin, str1);
+    int size;
+    cout << "Enter the size of the matrix: ";
+    cin >> size;
 
-    ofstream inputFile(inputFilename);
-    if (!inputFile.is_open()) {
-        cout << "Input file cannot be created or opened.\n";
-        return 0;
+    int matrix[MAX_SIZE][MAX_SIZE];
+   lib.generateMatrix(matrix, size);
+
+    cout << "Original matrix:" << endl;
+    lib.printMatrix(matrix, size);
+
+    string originalFileName, resultFileName;
+    cout << "Enter the name of the file to store the original matrix: ";
+    cin >> originalFileName;
+    cout << "Enter the name of the file to store the sorted matrix: ";
+    cin >> resultFileName;
+
+    ofstream originalFile(originalFileName);
+    if (originalFile.is_open()) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                originalFile << matrix[i][j] << "\t";
+            }
+            originalFile << endl;
+        }
+        originalFile.close();
+        cout << "Original matrix written to " << originalFileName << endl;
     }
-    inputFile << str1 << "\n";
-    inputFile.close();
-
-    lib.replaceBrackets(str1);
-
-    ofstream outputFile(outputFilename);
-    if (!outputFile.is_open()) {
-        cout << "Output file cannot be created or opened.\n";
-        return 0;
+    else {
+        cout << "Unable to create/open the file " << originalFileName << endl;
     }
-    outputFile << str1 << "\n";
-    outputFile.close();
 
-    cout << "Result has been written to the output file.\n";
+    sortMatrix(matrix, size);
+
+    cout << "Sorted matrix:" << endl;
+    lib.printMatrix(matrix, size);
+
+    ofstream resultFile(resultFileName);
+    if (resultFile.is_open()) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                resultFile << matrix[i][j] << "\t";
+            }
+            resultFile << endl;
+        }
+        resultFile.close();
+        cout << "Sorted matrix written to " << resultFileName << endl;
+    }
+    else {
+        cout << "Unable to create/open the file " << resultFileName << endl;
+    }
 
     return 0;
 }
