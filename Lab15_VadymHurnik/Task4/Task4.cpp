@@ -1,33 +1,12 @@
 #include <iostream>
 #include <fstream>
+#include<StaticLib.h>
+#include<DynamicLib.h>
 
 using namespace std;
 
-void printArray(int arr[], int size) {
-	for (int i = 0; i < size; i++) {
-		cout << arr[i] << " ";
-	}
-	cout << endl;
-}
-
-double averageOdd(int arr[], int size) {
-	int count = 0;
-	double sum = 0;
-	for (int i = 0; i < size; i++) {
-		if (arr[i] % 2 != 0) {
-			sum += arr[i];
-			count++;
-		}
-	}
-	if (count == 0) {
-		return 0;
-	}
-	else {
-		return sum / count;
-	}
-}
-
 int main() {
+	StaticLibrary::StaticLib lib;
 	string inputFilename;
 	string outputFilename;
 
@@ -54,7 +33,7 @@ int main() {
 
 		inputFile.close();
 
-		printArray(arr, size);
+		lib.printArray(arr, size);
 
 		double result = averageOdd(arr, size);
 

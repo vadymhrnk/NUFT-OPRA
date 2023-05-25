@@ -1,17 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include<StaticLib.h>
+#include<DynamicLib.h>
 
 using namespace std;
-
-void printMatrix(int** arr, int size) {
-	for (int i = 0; i < size; i++) {
-		for (int j = 0; j < size; j++) {
-			cout << arr[i][j] << "\t";
-		}
-		cout << endl;
-	}
-}
 
 int** readMatrixFromFile(const string& filename, int& size) {
 	ifstream file(filename);
@@ -71,6 +64,7 @@ void calculateRowSums(int** matrix, int size, int* rowSums) {
 }
 
 int main() {
+	StaticLibrary::StaticLib lib;
 	string inputFilename;
 	string outputFilename;
 	int size;
@@ -84,7 +78,7 @@ int main() {
 		}
 
 		int** matrix = readMatrixFromFile("..\\Task1\\" + inputFilename, size);
-		printMatrix(matrix, size);
+		lib.printMatrix(matrix, size);
 
 		if (matrix != nullptr) {
 			cout << "Enter the output file name: ";

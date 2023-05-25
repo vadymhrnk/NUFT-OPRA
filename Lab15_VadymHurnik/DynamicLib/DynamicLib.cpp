@@ -1,5 +1,6 @@
 #include "pch.h" 
 #include "DynamicLib.h"
+#include <algorithm>
 
 void bubbleSort(int arr[], int size)
 {
@@ -93,6 +94,25 @@ void sortMatrix(int matrix[][MAX_SIZE], int size)
             matrix[i][j] = temp[j];
         }
     }
+}
+
+DYNAMICLIB_API void sortMatrix(int** matrix, int* size)
+{
+    int** temp = new int* [*size];
+    for (int i = 0; i < *size; i++) {
+        temp[i] = new int[*size];
+        for (int j = 0; j < *size; j++) {
+            temp[i][j] = matrix[i][j];
+        }
+        sort(temp[i], temp[i] + *size, greater<int>());
+    }
+    for (int i = 0; i < *size; i++) {
+        for (int j = 0; j < *size; j++) {
+            matrix[i][j] = temp[i][j];
+        }
+        delete[] temp[i];
+    }
+    delete[] temp;
 }
 
 void calculateRowSums(int** matrix, int rowCount, int* rowSums) {

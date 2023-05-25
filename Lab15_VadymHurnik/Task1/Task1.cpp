@@ -2,6 +2,8 @@
 #include <string>
 #include <stdio.h>
 #include <ctime>
+#include<StaticLib.h>
+#include<DynamicLib.h>
 
 using namespace std;
 

@@ -2,37 +2,13 @@
 #include <fstream>
 #include <algorithm>
 #include <vector>
+#include<StaticLib.h>
+#include<DynamicLib.h>
 
 using namespace std;
 
-void printMatrix(int** arr, int* size) {
-	for (int i = 0; i < *size; i++) {
-		for (int j = 0; j < *size; j++) {
-			cout << arr[i][j] << "\t";
-		}
-		cout << endl;
-	}
-}
-
-void sortMatrix(int** matrix, int* size) {
-	int** temp = new int* [*size];
-	for (int i = 0; i < *size; i++) {
-		temp[i] = new int[*size];
-		for (int j = 0; j < *size; j++) {
-			temp[i][j] = matrix[i][j];
-		}
-		sort(temp[i], temp[i] + *size, greater<int>());
-	}
-	for (int i = 0; i < *size; i++) {
-		for (int j = 0; j < *size; j++) {
-			matrix[i][j] = temp[i][j];
-		}
-		delete[] temp[i];
-	}
-	delete[] temp;
-}
-
 int main() {
+	StaticLibrary::StaticLib lib;
 	string inputFilename;
 	string outputFilename;
 
@@ -62,10 +38,9 @@ int main() {
 
 		inputFile.close();
 
-		printMatrix(matrix, size);
+		lib.printMatrix(matrix, size);
 
 		sortMatrix(matrix, size);
-
 
 		cout << "Enter the output file name: ";
 		cin >> outputFilename;
@@ -86,7 +61,7 @@ int main() {
 
 		outputFile.close();
 
-		printMatrix(matrix, size);
+		lib.printMatrix(matrix, size);
 
 		cout << "Matrix sorted and written to file: " << outputFilename << endl;
 

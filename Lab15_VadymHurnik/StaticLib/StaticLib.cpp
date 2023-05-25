@@ -117,3 +117,13 @@ void StaticLibrary::StaticLib::printMatrix(int matrix[][MAX_SIZE], int size)
     }
     cout << endl;
 }
+
+void StaticLibrary::StaticLib::printMatrix(int** arr, int* size)
+{
+    for (int i = 0; i < *size; i++) {
+        for (int j = 0; j < *size; j++) {
+            cout << arr[i][j] << "\t";
+        }
+        cout << endl;
+    }
+}

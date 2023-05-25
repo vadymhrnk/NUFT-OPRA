@@ -1,19 +1,13 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include<StaticLib.h>
+#include<DynamicLib.h>
 
 using namespace std;
 
-void addComma(string& str) {
-	for (int i = 0; i < str.length(); i++) {
-		if (isdigit(str[i]) && i + 1 < str.length() && str[i + 1] == '+') {
-			str.insert(i + 1, ",");
-			i += 1;
-		}
-	}
-}
-
 int main() {
+	StaticLibrary::StaticLib lib;
 	string inputFilename;
 	string outputFilename;
 
@@ -45,7 +39,7 @@ int main() {
 		string line;
 		while (getline(inputFile, line)) {
 			cout << "Original string: " << line<<endl;
-			addComma(line);
+			lib.addComma(line);
 			cout << "Modified string: " << line<<endl;
 			outputFile << line << endl;
 		}

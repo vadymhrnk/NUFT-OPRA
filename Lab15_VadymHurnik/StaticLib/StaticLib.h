@@ -21,5 +21,6 @@ namespace StaticLibrary
         void replaceBrackets(string& str);
         void generateMatrix(int matrix[][MAX_SIZE], int size);
         void printMatrix(int matrix[][MAX_SIZE], int size);    
+        void printMatrix(int** arr, int* size);
     };
 }
