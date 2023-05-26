@@ -5,6 +5,19 @@
 
 using namespace std;
 
+void calculateColumnAverages(int** array, int size) {
+	for (int j = 0; j < size; j++) {
+		int sum = 0;
+		int numElements = 0;
+		for (int i = 0; i < size && i <= j && i < (size - j); i++) {
+			sum += array[i][j];
+			numElements++;
+		}
+		double average = static_cast<double>(sum) / numElements;
+		cout << "Average of column " << j + 1 << ": " << average << std::endl;
+	}
+}
+
 int** generateRandomArray(int size) {
 	int** array = new int* [size];
 	srand(time(0));
@@ -12,7 +25,7 @@ int** generateRandomArray(int size) {
 	for (int i = 0; i < size; i++) {
 		array[i] = new int[size];
 		for (int j = 0; j < size; j++) {
-			array[i][j] = 0/*rand() % 10*/;
+			array[i][j] = rand() % 30;
 		}
 	}
 
@@ -45,17 +58,10 @@ int main() {
 	cout << "Generated array:\n";
 	printArray(array, size);
 
-	int counter = 1;
-	for (int i = 0; i < size; i++)
-	{
-		for (int j = i; j < size && j < (size - i); j++)
-		{
-			array[j][i] = counter++;
-		}
-	}
-
 	cout << "New array:\n";
 	printArray(array, size);
+
+	calculateColumnAverages(array, size);
 
 	deleteArray(array, size);
 
