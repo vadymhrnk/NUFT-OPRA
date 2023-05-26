@@ -6,10 +6,10 @@ using namespace std;
 
 int* generateRandomArray(int size) {
     int* array = new int[size];
-    srand(time(0));  // Seed the random number generator with current time
+    srand(time(0)); 
 
     for (int i = 0; i < size; i++) {
-        array[i] = rand() % 100;  // Generate random numbers between 0 and 99
+        array[i] = rand() % 10;
     }
 
     return array;
