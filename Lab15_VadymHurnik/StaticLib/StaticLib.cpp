@@ -1,15 +1,9 @@
 // StaticLib.cpp : Defines the functions for the static library.
 //
-
 #include "pch.h"
 #include "framework.h"
 #include "StaticLib.h"
 #include <iostream>
-
-// TODO: This is an example of a library function
-void fnStaticLib()
-{
-}
 
 void StaticLibrary::StaticLib::printArray(int arr[], int size)
 {
@@ -44,12 +38,16 @@ bool StaticLibrary::StaticLib::isPalindrome(int arr[], int n)
     return true;
 }
 
-void StaticLibrary::StaticLib::addComma(string& str)
-{
-    for (int i = 0; i < str.length(); i++) {
-        if (isdigit(str[i]) && i + 1 < str.length() && str[i + 1] == '+') {
-            str.insert(i + 1, ",");
-            i += 1;
+void StaticLibrary::StaticLib::addComma(char str[256]) {
+    int length = strlen(str);
+    for (int i = 0; i < length; i++) {
+        if (isdigit(str[i]) && i + 1 < length && str[i + 1] == '+') {
+            for (int j = length - 1; j > i; j--) {
+                str[j + 1] = str[j];
+            }
+            str[i + 1] = ',';
+            length++;
+            i++;
         }
     }
 }

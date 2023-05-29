@@ -96,7 +96,7 @@ void sortMatrix(int matrix[][MAX_SIZE], int size)
     }
 }
 
-DYNAMICLIB_API void sortMatrix(int** matrix, int* size)
+DYNAMICLIB_API void sortMatrixPtr(int** matrix, int* size)
 {
     int** temp = new int* [*size];
     for (int i = 0; i < *size; i++) {

@@ -1,54 +1,54 @@
 #include <iostream>
-#include <fstream>
-#include <string>
+#include <stdio.h>
 #include<StaticLib.h>
 #include<DynamicLib.h>
 
 using namespace std;
 
 int main() {
-	StaticLibrary::StaticLib lib;
-	string inputFilename;
-	string outputFilename;
+    StaticLibrary::StaticLib lib;
+    string inputFilename;
+    string outputFilename;
 
-	while (true) {
-		cout << "Enter the input text file name (or 'stop' to exit): ";
-		cin >> inputFilename;
+    while (true) {
+        cout << "Enter the input text file name (or 'stop' to exit): ";
+        cin >> inputFilename;
 
-		if (inputFilename == "stop") {
-			break;
-		}
+        if (inputFilename == "stop") {
+            break;
+        }
 
-		ifstream inputFile("..\\Task1\\" + inputFilename);
+        FILE* inputFile = fopen(("../Task1/" + inputFilename).c_str(), "r");
 
-		if (!inputFile.is_open()) {
-			cout << "Error opening input file: " << inputFilename << endl;
-			continue;
-		}
+        if (inputFile == nullptr) {
+            cout << "Error opening input file: " << inputFilename << endl;
+            continue;
+        }
 
-		cout << "Enter the output file name: ";
-		cin >> outputFilename;
+        cout << "Enter the output file name: ";
+        cin >> outputFilename;
 
-		ofstream outputFile(outputFilename);
+        FILE* outputFile = fopen(outputFilename.c_str(), "w");
 
-		if (!outputFile.is_open()) {
-			cout << "Error opening output file: " << outputFilename << endl;
-			continue;
-		}
+        if (outputFile == nullptr) {
+            cout << "Error opening output file: " << outputFilename << endl;
+            continue;
+        }
 
-		string line;
-		while (getline(inputFile, line)) {
-			cout << "Original string: " << line<<endl;
-			lib.addComma(line);
-			cout << "Modified string: " << line<<endl;
-			outputFile << line << endl;
-		}
+        char line[256];
+        while (fgets(line, sizeof(line), inputFile)) {
+            line[strcspn(line, "\n")] = '\0';
+            cout << "Original string: " << line << endl;
+            lib.addComma(line);
+            cout << "Modified string: " << line << endl;
+            fprintf(outputFile, "%s\n", line);
+        }
 
-		inputFile.close();
-		outputFile.close();
+        fclose(inputFile);
+        fclose(outputFile);
 
-		cout << "Result written to file: " << outputFilename << endl;
-	}
+        cout << "Result written to file: " << outputFilename << endl;
+    }
 
-	return 0;
+    return 0;
 }

@@ -1,62 +1,62 @@
 #include <iostream>
-#include <fstream>
-#include<StaticLib.h>
-#include<DynamicLib.h>
+#include <stdio.h>
+#include <StaticLib.h>
+#include <DynamicLib.h>
 
 using namespace std;
 
 int main() {
-	StaticLibrary::StaticLib lib;
-	string inputFilename;
-	string outputFilename;
+    StaticLibrary::StaticLib lib;
+    string inputFilename;
+    string outputFilename;
 
-	while (true) {
-		cout << "Enter the input binary file name (or 'stop' to exit): ";
-		cin >> inputFilename;
+    while (true) {
+        cout << "Enter the input binary file name (or 'stop' to exit): ";
+        cin >> inputFilename;
 
-		if (inputFilename == "stop") {
-			break;
-		}
+        if (inputFilename == "stop") {
+            break;
+        }
 
-		ifstream inputFile("..\\Task1\\" + inputFilename, ios::binary);
+        FILE* inputFile = fopen(("../Task1/" + inputFilename).c_str(), "rb");
 
-		if (!inputFile.is_open()) {
-			cout << "Error opening input file: " << inputFilename << endl;
-			continue;
-		}
+        if (inputFile == nullptr) {
+            cout << "Error opening input file: " << inputFilename << endl;
+            continue;
+        }
 
-		int size;
-		inputFile.read(reinterpret_cast<char*>(&size), sizeof(int));
+        int size;
+        fread(&size, sizeof(int), 1, inputFile);
 
-		int* arr = new int[size];
-		inputFile.read(reinterpret_cast<char*>(arr), size * sizeof(int));
+        int* arr = new int[size];
+        fread(arr, sizeof(int), size, inputFile);
 
-		inputFile.close();
+        fclose(inputFile);
 
-		lib.printArray(arr, size);
+        lib.printArray(arr, size);
 
-		double result = averageOdd(arr, size);
+        double result = averageOdd(arr, size);
 
-		cout << "Average odd: " << result << endl;
+        cout << "Average odd: " << result << endl;
 
-		cout << "Enter the output file name: ";
-		cin >> outputFilename;
+        cout << "Enter the output file name: ";
+        cin >> outputFilename;
 
-		ofstream outputFile(outputFilename);
+        FILE* outputFile = fopen(outputFilename.c_str(), "w");
 
-		if (!outputFile.is_open()) {
-			cout << "Error opening output file: " << outputFilename << endl;
-			continue;
-		}
+        if (outputFile == nullptr) {
+            cout << "Error opening output file: " << outputFilename << endl;
+            continue;
+        }
 
-		outputFile << result << endl;
+        fprintf(outputFile, "%f\n", result);
 
-		outputFile.close();
+        fclose(outputFile);
 
-		cout << "Result written to file: " << outputFilename << endl;
+        cout << "Result written to file: " << outputFilename << endl;
 
-		delete[] arr;
-	}
+        delete[] arr;
+    }
 
-	return 0;
+    return 0;
 }

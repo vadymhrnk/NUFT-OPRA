@@ -15,7 +15,7 @@ namespace StaticLibrary
         void printArray(int arr[], int size);
         void printMatrix(int** arr, int size);
         bool isPalindrome(int arr[], int n);
-        void addComma(string& str);
+        void addComma(char str[256]);
         void fillMatrix(int arr[ROWS][COLS]);
         void printMatrix(int arr[ROWS][COLS]);
         void replaceBrackets(string& str);
