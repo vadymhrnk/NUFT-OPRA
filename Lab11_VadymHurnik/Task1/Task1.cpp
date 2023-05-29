@@ -23,15 +23,20 @@ void printArray(int arr[], int size) {
     cout << endl;
 }
 
+void generateArrays(int arr1[],int arr2[], const int SIZE) {
+    for (int i = 0; i < SIZE; i++) {
+        arr1[i] = rand() % 100 - 50;
+        arr2[i] = rand() % 100 - 50;
+    }
+}
+
 int main() {
     srand(time(NULL));
     const int SIZE = 10;
     int arr1[SIZE];
     int arr2[SIZE];
-    for (int i = 0; i < SIZE; i++) {
-        arr1[i] = rand() % 100 - 50;
-        arr2[i] = rand() % 100 - 50;
-    }
+
+    generateArrays(arr1, arr2, SIZE);
 
     cout << "Array 1 (unsorted): ";
     printArray(arr1, SIZE);
